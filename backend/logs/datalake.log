@@ -1,0 +1,302 @@
+2026-03-26T12:13:57.990296+0000 | INFO | Starting DataLake Platform...
+2026-03-26T12:13:58.021085+0000 | INFO | Connected to MongoDB: datalake
+2026-03-26T12:13:58.027661+0000 | ERROR | Failed to connect to MongoDB: 'int' object has no attribute 'in_transaction'
+2026-03-26T12:13:58.028103+0000 | WARNING | MongoDB connection failed (non-fatal): 'int' object has no attribute 'in_transaction'
+2026-03-26T12:13:58.200289+0000 | INFO | Connected to PostgreSQL
+2026-03-26T12:13:58.200851+0000 | ERROR | Failed to connect to ClickHouse: Connection.__init__() got an unexpected keyword argument 'compress'
+2026-03-26T12:13:58.201156+0000 | WARNING | ClickHouse connection failed (non-fatal): Connection.__init__() got an unexpected keyword argument 'compress'
+2026-03-26T12:13:58.203545+0000 | INFO | Connected to MinIO at minio:9000
+2026-03-26T12:13:58.212935+0000 | INFO | Created bucket: datalake-files
+2026-03-26T12:13:58.213360+0000 | INFO | Startup connections: {'mongodb': False, 'postgresql': True, 'clickhouse': False, 'minio': True}
+2026-03-26T12:14:08.602818+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:14:23.750369+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:14:38.749599+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:14:53.907537+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:15:08.906891+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:15:24.058977+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:15:39.058924+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:15:54.213248+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:16:09.212559+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:16:24.366674+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:16:39.365942+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:16:54.518617+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:17:09.518509+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:17:24.674493+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:17:34.406835+0000 | INFO | Shutting down DataLake Platform...
+2026-03-26T12:17:34.408127+0000 | INFO | Disconnected from MongoDB
+2026-03-26T12:17:34.411551+0000 | INFO | Disconnected from PostgreSQL
+2026-03-26T12:17:34.411934+0000 | INFO | All connections closed
+2026-03-26T12:17:36.936736+0000 | INFO | Starting DataLake Platform...
+2026-03-26T12:17:36.952235+0000 | INFO | Connected to MongoDB: datalake
+2026-03-26T12:17:36.957061+0000 | WARNING | MongoDB index creation failed (non-fatal): 'int' object has no attribute 'in_transaction'
+2026-03-26T12:17:37.019011+0000 | INFO | Connected to PostgreSQL
+2026-03-26T12:17:38.942662+0000 | ERROR | Failed to connect to ClickHouse: Code: 210. Name or service not known (clickhouse:9000)
+2026-03-26T12:17:38.943104+0000 | WARNING | ClickHouse connection failed (non-fatal): Code: 210. Name or service not known (clickhouse:9000)
+2026-03-26T12:17:38.944357+0000 | INFO | Connected to MinIO at minio:9000
+2026-03-26T12:17:38.947691+0000 | INFO | Bucket already exists: datalake-files
+2026-03-26T12:17:38.948102+0000 | INFO | Startup connections: {'mongodb': True, 'postgresql': True, 'clickhouse': False, 'minio': True}
+2026-03-26T12:17:39.679914+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:17:54.830543+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:18:09.830428+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:18:24.981364+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:18:39.981956+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:18:55.135645+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:19:10.135983+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:19:25.280362+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:19:40.281838+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:19:55.456401+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:20:10.455464+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:20:25.609913+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:20:40.609039+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:20:55.766950+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:21:10.764640+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:21:19.800719+0000 | INFO | GET / - Status: 200 - Time: 0.001s
+2026-03-26T12:21:25.918031+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:21:40.170483+0000 | ERROR | ClickHouse query failed: SELECT 1, error: Code: 210. Name or service not known (clickhouse:9000)
+2026-03-26T12:21:40.179153+0000 | INFO | GET /health - Status: 200 - Time: 1.884s
+2026-03-26T12:21:40.918456+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:21:45.285498+0000 | INFO | GET / - Status: 200 - Time: 0.001s
+2026-03-26T12:21:56.079988+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:22:09.340601+0000 | ERROR | ClickHouse query failed: SELECT 1, error: Code: 210. Name or service not known (clickhouse:9000)
+2026-03-26T12:22:09.342831+0000 | INFO | GET /health - Status: 200 - Time: 1.888s
+2026-03-26T12:22:11.079067+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:22:26.231153+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:22:41.231403+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:22:44.996852+0000 | INFO | Shutting down DataLake Platform...
+2026-03-26T12:22:44.998160+0000 | INFO | Disconnected from MongoDB
+2026-03-26T12:22:45.001465+0000 | INFO | Disconnected from PostgreSQL
+2026-03-26T12:22:45.001985+0000 | INFO | Disconnected from ClickHouse
+2026-03-26T12:22:45.002347+0000 | INFO | All connections closed
+2026-03-26T12:22:48.305920+0000 | INFO | Starting DataLake Platform...
+2026-03-26T12:22:48.325446+0000 | INFO | Connected to MongoDB: datalake
+2026-03-26T12:22:48.332615+0000 | WARNING | MongoDB index creation failed (non-fatal): 'int' object has no attribute 'in_transaction'
+2026-03-26T12:22:48.408898+0000 | INFO | Connected to PostgreSQL
+2026-03-26T12:22:50.285858+0000 | ERROR | Failed to connect to ClickHouse: Code: 210. Name or service not known (clickhouse:9000)
+2026-03-26T12:22:50.286323+0000 | WARNING | ClickHouse connection failed (non-fatal): Code: 210. Name or service not known (clickhouse:9000)
+2026-03-26T12:22:50.287595+0000 | INFO | Connected to MinIO at minio:9000
+2026-03-26T12:22:50.291988+0000 | INFO | Bucket already exists: datalake-files
+2026-03-26T12:22:50.292472+0000 | INFO | Startup connections: {'mongodb': True, 'postgresql': True, 'clickhouse': False, 'minio': True}
+2026-03-26T12:22:56.390568+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:23:06.881652+0000 | ERROR | ClickHouse query failed: SELECT 1, error: Code: 210. Name or service not known (clickhouse:9000)
+2026-03-26T12:23:06.885899+0000 | INFO | GET /health - Status: 200 - Time: 1.882s
+2026-03-26T12:23:11.387054+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:23:16.072601+0000 | INFO | GET /api/v1/analytics/quality/integrity-check - Status: 405 - Time: 0.000s
+2026-03-26T12:23:26.540125+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:23:35.470345+0000 | INFO | POST /api/v1/analytics/quality/integrity-check - Status: 501 - Time: 0.000s
+2026-03-26T12:23:39.682737+0000 | INFO | POST /api/v1/analytics/labeling/active-learning/next - Status: 501 - Time: 0.000s
+2026-03-26T12:23:41.539914+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:23:45.065849+0000 | INFO | POST /api/v1/analytics/labeling/predict - Status: 422 - Time: 0.001s
+2026-03-26T12:23:56.694810+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:24:06.625165+0000 | INFO | POST /api/v1/projects/ - Status: 401 - Time: 0.002s
+2026-03-26T12:24:06.666823+0000 | INFO | POST /api/v1/tasks/ - Status: 401 - Time: 0.001s
+2026-03-26T12:24:11.694611+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:24:16.486064+0000 | INFO | POST /api/v1/users/register - Status: 422 - Time: 0.001s
+2026-03-26T12:24:26.849255+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:24:41.850318+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:24:57.009564+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:25:12.010839+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:25:27.163216+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:25:42.163521+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:25:57.320325+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:26:12.318992+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:26:27.482146+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:26:42.482149+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:26:57.646768+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:27:12.646693+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:27:27.801584+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:27:42.801840+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:27:57.961080+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:28:12.960359+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:28:28.117138+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:28:43.117228+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:28:58.279198+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:29:13.280587+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:29:28.439218+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:29:43.437945+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:29:58.594750+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:30:13.594220+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:30:28.755459+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:30:43.755375+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:30:58.917899+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:31:13.917747+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:31:29.077756+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:31:44.076606+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:31:59.233094+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:32:14.232820+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:32:29.392161+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:32:44.391440+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:32:59.555007+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:33:14.555452+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:33:29.714425+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:33:44.713588+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:33:59.869192+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:34:14.869455+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:34:30.025465+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:34:45.025509+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:35:00.182692+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:35:15.183997+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:35:30.343262+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:35:45.342272+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:36:00.498398+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:36:15.499405+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:36:30.656148+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:36:45.656415+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:37:00.814120+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:37:15.812770+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:37:30.973135+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:37:45.974411+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:38:01.134273+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:38:16.132752+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:38:31.295860+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:38:46.296181+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:39:01.452696+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:39:16.451896+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:39:31.615934+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:39:46.615460+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:40:01.776259+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:40:16.776162+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:40:31.936914+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:40:46.937005+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:41:02.099512+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:41:17.098382+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:41:32.260193+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:41:47.259776+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:42:02.417140+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:42:17.417204+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:42:32.581292+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:42:47.581979+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:43:02.745083+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:43:17.743299+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:43:32.911543+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:43:47.911783+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:44:03.072665+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:44:18.072477+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:44:33.235647+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:44:48.235934+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:45:03.394848+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:45:18.394570+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:45:33.561779+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:45:48.561498+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:46:03.717974+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:46:18.717699+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:46:33.880775+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:46:48.881328+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:47:04.046047+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:47:19.045951+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:47:34.206995+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:47:49.205256+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:53:22.066563+0000 | INFO | Starting DataLake Platform...
+2026-03-26T12:53:22.124274+0000 | INFO | Connected to MongoDB: datalake
+2026-03-26T12:53:22.136207+0000 | WARNING | MongoDB index creation failed (non-fatal): 'int' object has no attribute 'in_transaction'
+2026-03-26T12:53:22.336098+0000 | INFO | Connected to PostgreSQL
+2026-03-26T12:53:24.211014+0000 | ERROR | Failed to connect to ClickHouse: Code: 210. Name or service not known (clickhouse:9000)
+2026-03-26T12:53:24.211484+0000 | WARNING | ClickHouse connection failed (non-fatal): Code: 210. Name or service not known (clickhouse:9000)
+2026-03-26T12:53:24.213591+0000 | INFO | Connected to MinIO at minio:9000
+2026-03-26T12:53:24.217081+0000 | INFO | Bucket already exists: datalake-files
+2026-03-26T12:53:24.217431+0000 | INFO | Startup connections: {'mongodb': True, 'postgresql': True, 'clickhouse': False, 'minio': True}
+2026-03-26T12:53:26.228995+0000 | INFO | GET / - Status: 200 - Time: 0.000s
+2026-03-26T12:53:37.660610+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:53:47.089420+0000 | INFO | GET / - Status: 200 - Time: 0.001s
+2026-03-26T12:53:47.231243+0000 | INFO | GET /favicon.ico - Status: 404 - Time: 0.000s
+2026-03-26T12:53:53.143835+0000 | ERROR | ClickHouse query failed: SELECT 1, error: Code: 210. Name or service not known (clickhouse:9000)
+2026-03-26T12:53:53.149983+0000 | INFO | GET /health - Status: 200 - Time: 1.880s
+2026-03-26T12:53:53.151263+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:54:07.656443+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:54:08.888239+0000 | INFO | GET / - Status: 200 - Time: 0.000s
+2026-03-26T12:54:14.427381+0000 | INFO | GET /api/v1/users/register - Status: 405 - Time: 0.000s
+2026-03-26T12:54:23.138451+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:54:38.139596+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:54:40.723131+0000 | INFO | GET /docs - Status: 200 - Time: 0.000s
+2026-03-26T12:54:41.640050+0000 | INFO | GET /openapi.json - Status: 200 - Time: 0.017s
+2026-03-26T12:54:54.862842+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:55:09.862904+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:55:26.326945+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:55:41.327386+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:55:57.838609+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:56:12.839303+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:56:29.440012+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:56:44.440042+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T12:57:00.881928+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:57:15.882040+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:57:32.205343+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:57:47.205530+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:58:03.599751+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:58:18.598898+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:58:34.964767+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:58:49.965168+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:59:06.372346+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:59:21.373273+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:59:37.752780+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T12:59:52.752856+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:00:09.145772+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:00:24.146214+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:00:40.579956+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:00:55.579924+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:01:11.957164+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:01:26.956883+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:01:43.367192+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:01:58.367180+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:02:14.809213+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:02:29.808273+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:02:46.340466+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:02:54.933520+0000 | INFO | GET /docs - Status: 200 - Time: 0.000s
+2026-03-26T13:02:55.067231+0000 | INFO | GET /openapi.json - Status: 200 - Time: 0.001s
+2026-03-26T13:03:01.340857+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:03:17.730095+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:03:32.730307+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:03:49.126596+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:04:04.126450+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:04:20.946720+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:04:35.946872+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:04:51.380945+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:05:08.251544+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:05:23.965500+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:05:38.965578+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:05:55.429656+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:06:10.429504+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:06:27.134610+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:06:42.134470+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:06:58.921990+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:07:13.921903+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:07:30.426996+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:07:45.426895+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:08:01.995247+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:08:28.479517+0000 | INFO | GET /metrics - Status: 404 - Time: 0.001s
+2026-03-26T13:35:55.687270+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:36:10.687048+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:36:26.804744+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:36:41.804422+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:36:57.883993+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:37:12.884963+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:37:29.199874+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:37:44.199995+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:38:00.150458+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:38:15.151305+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:38:31.391077+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:38:46.391048+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:39:02.622094+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:39:17.621111+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:39:33.881263+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:39:48.881979+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:40:05.132942+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:40:20.132454+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:40:36.445857+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:40:51.446395+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:41:07.758864+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:41:22.759528+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:41:39.014440+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:41:54.014621+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:42:10.249667+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:42:25.249674+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:42:41.602634+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:42:56.602653+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:43:12.929078+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:43:27.928365+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:43:44.168425+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:43:59.168477+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:44:15.378807+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:44:30.377913+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:44:46.751269+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:45:01.750848+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:45:17.024348+0000 | INFO | GET /metrics - Status: 404 - Time: 0.000s
+2026-03-26T13:45:23.106212+0000 | INFO | Shutting down DataLake Platform...
