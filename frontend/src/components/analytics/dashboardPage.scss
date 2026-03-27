@@ -1,0 +1,11 @@
+@import 'base';
+
+.dashboardPage {
+  padding: $grid-unit-size * 2;
+  height: 100%;
+
+  &__card {
+    margin-top: $grid-unit-size * 2;
+  }
+}
+

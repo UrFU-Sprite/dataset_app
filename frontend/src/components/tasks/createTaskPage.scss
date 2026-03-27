@@ -1,0 +1,43 @@
+@import 'base';
+
+.createTaskPage {
+  padding: $grid-unit-size * 2;
+  height: 100%;
+
+  &__card {
+    margin-top: $grid-unit-size * 2;
+    overflow: hidden;
+
+    .ant-card-body {
+      overflow: auto;
+      max-height: calc(100vh - #{$header-height} - #{$grid-unit-size} * 12);
+    }
+  }
+
+  &__preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $grid-unit-size;
+    padding: $grid-unit-size;
+    border-radius: $border-radius-base;
+    background: $background-color-2;
+  }
+
+  &__preview-item {
+    border-radius: $border-radius-base;
+    overflow: hidden;
+    border: 1px solid $border-color-1;
+  }
+
+  &__preview-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed $border-color-hover;
+    border-radius: $border-radius-base;
+    color: $text-color-secondary;
+    width: 120px;
+    height: 120px;
+  }
+}
+

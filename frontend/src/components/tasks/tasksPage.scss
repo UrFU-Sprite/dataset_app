@@ -1,0 +1,25 @@
+@import 'base';
+
+.tasksPage {
+  padding: $grid-unit-size * 2;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $grid-unit-size * 2;
+    margin-bottom: $grid-unit-size * 2;
+  }
+
+  &__card {
+    height: calc(100vh - #{$header-height} - #{$grid-unit-size} * 12);
+    overflow: hidden;
+
+    .ant-card-body {
+      height: 100%;
+      overflow: auto;
+    }
+  }
+}
+

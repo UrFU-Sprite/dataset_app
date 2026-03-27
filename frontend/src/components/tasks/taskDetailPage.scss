@@ -1,0 +1,59 @@
+@import 'base';
+
+.taskDetailPage {
+  padding: $grid-unit-size * 2;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $grid-unit-size * 2;
+    margin-bottom: $grid-unit-size * 2;
+  }
+
+  &__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: $grid-unit-size * 2;
+  }
+
+  &__card {
+    overflow: hidden;
+
+    .ant-card-body {
+      overflow: auto;
+      height: calc(100vh - #{$header-height} - #{$grid-unit-size} * 14);
+    }
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $grid-unit-size * 2;
+  }
+
+  &__item {
+    width: 360px;
+    border: 1px solid $border-color-1;
+    border-radius: $border-radius-base;
+    overflow: hidden;
+    background: white;
+  }
+
+  &__image {
+    background: $background-color-2;
+  }
+
+  &__caption {
+    padding: $grid-unit-size;
+
+    .ant-typography {
+      display: block;
+      margin-bottom: $grid-unit-size;
+    }
+  }
+}
+

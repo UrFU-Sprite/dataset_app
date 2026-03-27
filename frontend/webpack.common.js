@@ -1,3 +1,6 @@
+// docker build -t dataset-frontend ./frontend
+// docker run --rm -p 8080:80 dataset-frontend
+
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');

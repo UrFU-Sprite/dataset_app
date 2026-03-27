@@ -1,0 +1,38 @@
+@import 'base';
+
+.projectsPage {
+  padding: $grid-unit-size * 2;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $grid-unit-size * 2;
+    margin-bottom: $grid-unit-size * 2;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: $grid-unit-size * 2;
+    height: calc(100vh - #{$header-height} - #{$grid-unit-size} * 12);
+  }
+
+  &__card {
+    overflow: hidden;
+
+    .ant-card-body {
+      overflow: auto;
+      height: 100%;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .projectsPage__grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
