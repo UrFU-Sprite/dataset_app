@@ -1,0 +1,14 @@
+@import 'base';
+
+.app-shell.ant-layout {
+  min-height: 100vh;
+  background: $background-color-2;
+}
+
+.app-shell__content.ant-layout-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0;
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 2%) 0%, transparent 120px);
+}

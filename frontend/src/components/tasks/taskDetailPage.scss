@@ -22,6 +22,8 @@
 
   &__card {
     overflow: hidden;
+    box-shadow: $box-shadow-base;
+    border-radius: $border-radius-base;
 
     .ant-card-body {
       overflow: auto;

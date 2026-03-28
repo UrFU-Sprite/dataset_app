@@ -126,7 +126,9 @@ export default function ProjectsPage() {
                             rowKey={(p) => String(p.id)}
                             columns={columns}
                             dataSource={projects}
-                            pagination={{pageSize: 8}}
+                            pagination={{pageSize: 8, showSizeChanger: false}}
+                            bordered
+                            size="middle"
                         />
                     )}
                 </Card>

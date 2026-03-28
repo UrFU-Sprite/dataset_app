@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react'
-import {Card, notification, Space, Spin, Statistic, Typography} from 'antd'
+import {Card, Col, notification, Row, Space, Spin, Statistic, Typography} from 'antd'
 import type {DashboardResponse} from 'api/analytics'
 import {getDashboard} from 'api/analytics'
 
@@ -44,12 +44,24 @@ export default function DashboardPage() {
                         <Spin />
                     </div>
                 ) : (
-                    <Space direction="vertical" size={16}>
-                        <Space size={16} wrap>
-                            <Statistic title="Total tasks" value={total} />
-                            <Statistic title="Completed tasks" value={completed} />
-                            <Statistic title="Open tasks" value={open} />
-                        </Space>
+                    <Space direction="vertical" size={16} style={{width: '100%'}}>
+                        <Row gutter={[16, 16]}>
+                            <Col xs={24} sm={8}>
+                                <Card size="small" variant="borderless" className="dashboardPage__stat-card">
+                                    <Statistic title="Total tasks" value={total} />
+                                </Card>
+                            </Col>
+                            <Col xs={24} sm={8}>
+                                <Card size="small" variant="borderless" className="dashboardPage__stat-card">
+                                    <Statistic title="Completed tasks" value={completed} />
+                                </Card>
+                            </Col>
+                            <Col xs={24} sm={8}>
+                                <Card size="small" variant="borderless" className="dashboardPage__stat-card">
+                                    <Statistic title="Open tasks" value={open} />
+                                </Card>
+                            </Col>
+                        </Row>
                         <Typography.Text type="secondary">
                             {typeof (data as any)?.label === 'string' ? (data as any).label : '—'}
                         </Typography.Text>

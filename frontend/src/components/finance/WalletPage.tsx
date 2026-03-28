@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react'
-import {Alert, Card, notification, Space, Spin, Statistic, Typography} from 'antd'
+import {Alert, Card, Col, notification, Row, Space, Spin, Statistic, Typography} from 'antd'
 import {getWallet} from 'api/finance'
 import type {WalletResponse} from 'api/finance'
 
@@ -40,13 +40,19 @@ export default function WalletPage() {
                         <Spin />
                     </div>
                 ) : wallet ? (
-                    <Space direction="vertical" size={12}>
-                        <Statistic
-                            title="Balance"
-                            value={typeof wallet.balance === 'number' ? wallet.balance : 0}
-                            precision={2}
-                            suffix={wallet.currency ?? ''}
-                        />
+                    <Space direction="vertical" size={16} style={{width: '100%'}}>
+                        <Row gutter={[16, 16]}>
+                            <Col xs={24} sm={12} md={8}>
+                                <Card size="small" variant="borderless" className="walletPage__stat-card">
+                                    <Statistic
+                                        title="Balance"
+                                        value={typeof wallet.balance === 'number' ? wallet.balance : 0}
+                                        precision={2}
+                                        suffix={wallet.currency ?? ''}
+                                    />
+                                </Card>
+                            </Col>
+                        </Row>
                         {Object.keys(wallet).length > 2 && (
                             <Alert
                                 type="info"

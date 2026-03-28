@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from "react-router-dom";
+import {ConfigProvider} from 'antd';
 import 'antd/dist/reset.css';
 
 import App from 'components/App'
@@ -17,7 +18,26 @@ const setFavicon = () => {
 const root = document.getElementById('root') as HTMLDivElement
 setFavicon()
 ReactDOM.createRoot(root).render(
-    <BrowserRouter>
-        <App/>
-    </BrowserRouter>
+    <ConfigProvider
+        theme={{
+            token: {
+                colorPrimary: '#1677ff',
+                borderRadius: 8,
+                fontFamily:
+                    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+            },
+            components: {
+                Card: {
+                    headerBg: 'transparent',
+                },
+                Layout: {
+                    bodyBg: '#f0f2f5',
+                },
+            },
+        }}
+    >
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </ConfigProvider>
 );

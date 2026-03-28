@@ -6,6 +6,13 @@
 
   &__card {
     margin-top: $grid-unit-size * 2;
+    box-shadow: $box-shadow-base;
+    border-radius: $border-radius-base;
+  }
+
+  &__stat-card {
+    background: $background-color-2;
+    border-radius: $border-radius-base;
   }
 }
 

@@ -140,7 +140,9 @@ export default function TasksPage() {
                         rowKey={(t) => String(t.id)}
                         columns={columns}
                         dataSource={filteredTasks}
-                        pagination={{pageSize: 10}}
+                        pagination={{pageSize: 10, showSizeChanger: false}}
+                        bordered
+                        size="middle"
                     />
                 ) : (
                     <Empty description="No tasks found" />

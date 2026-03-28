@@ -1,7 +1,9 @@
 import React, {useCallback} from 'react'
-import {Alert, Button, Card, Spin, Space, Typography} from 'antd'
+import {Alert, Button, Card, Descriptions, Spin, Typography} from 'antd'
 
 import {useAuth} from 'auth/AuthContext'
+
+import './profilePage.scss'
 
 export default function ProfilePage() {
     const {user, userLoading, refreshUser} = useAuth()
@@ -11,8 +13,8 @@ export default function ProfilePage() {
     }, [refreshUser])
 
     return (
-        <div style={{padding: 16, height: '100%'}}>
-            <Card>
+        <div className="profilePage">
+            <Card className="profilePage__card">
                 {userLoading ? (
                     <div style={{padding: 24, display: 'flex', justifyContent: 'center'}}>
                         <Spin />
@@ -22,17 +24,11 @@ export default function ProfilePage() {
                         <Typography.Title level={3} style={{marginTop: 0}}>
                             Profile
                         </Typography.Title>
-                        <Space direction="vertical" size={8}>
-                            <Typography.Text>
-                                <b>Email:</b> {user.email ?? '—'}
-                            </Typography.Text>
-                            <Typography.Text>
-                                <b>Username:</b> {user.username ?? '—'}
-                            </Typography.Text>
-                            <Typography.Text>
-                                <b>Name:</b> {user.name ?? '—'}
-                            </Typography.Text>
-                        </Space>
+                        <Descriptions bordered column={1} size="middle" style={{marginTop: 8}}>
+                            <Descriptions.Item label="Email">{user.email ?? '—'}</Descriptions.Item>
+                            <Descriptions.Item label="Username">{user.username ?? '—'}</Descriptions.Item>
+                            <Descriptions.Item label="Name">{user.name ?? '—'}</Descriptions.Item>
+                        </Descriptions>
 
                         <div style={{marginTop: 16}}>
                             <Button onClick={onRefresh} disabled={userLoading}>
@@ -47,4 +43,3 @@ export default function ProfilePage() {
         </div>
     )
 }
-
