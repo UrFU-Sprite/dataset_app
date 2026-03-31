@@ -1,0 +1,18 @@
+@import 'base';
+
+.authPage {
+  min-height: calc(100vh - #{$header-height});
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $grid-unit-size * 3;
+  box-sizing: border-box;
+
+  &__card {
+    width: 100%;
+    max-width: 420px;
+    box-shadow: $box-shadow-base;
+    border-radius: $border-radius-base;
+  }
+}
+

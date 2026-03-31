@@ -1,0 +1,181 @@
+@import 'base';
+
+// Глобальные стили для заголовков страниц
+.page-header {
+  margin-bottom: 32px;
+  padding: 24px 0 20px 0;
+  border-bottom: 2px solid $border-color-1;
+  
+  .page-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    background: linear-gradient(135deg, #2E6B47 0%, #1F4D33 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .page-description {
+    color: $text-color-secondary;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.sprite-header.ant-layout-header {
+    display: flex;
+    padding-left: $grid-unit-size;
+    padding-right: $grid-unit-size * 2;
+    line-height: 0;
+    height: $header-height;
+    background: $header-color;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 0 $border-color-1;
+}
+
+.ant-btn.sprite-header-button {
+    color: $text-color;
+    margin-right: $grid-unit-size;
+
+    &:hover {
+        color: $text-color;
+    }
+}
+
+.ant-btn.ant-btn-link.sprite-header-button {
+    color: $text-color;
+}
+
+.sprite-header-logo-btn {
+    margin-right: $grid-unit-size;
+    height: $grid-unit-size * 5;
+    padding: 0 $grid-unit-size;
+}
+
+.sprite-header-nav-menu.ant-menu.ant-menu-horizontal {
+    flex: 1;
+    min-width: 0;
+    border-bottom: none;
+    background: transparent;
+    line-height: $header-height - 2px;
+
+    .ant-menu-item {
+        color: $text-color;
+
+        &::after {
+            border-bottom-width: 2px !important;
+        }
+    }
+
+    .ant-menu-item-selected {
+        color: $text-color !important;
+        font-weight: 600;
+        background: transparent !important;
+    }
+
+    .ant-menu-item:hover {
+        color: $text-color !important;
+    }
+}
+
+.sprite-header-user-email {
+    max-width: $grid-unit-size * 30;
+    margin-right: $grid-unit-size * 2;
+}
+
+.sprite-logo-icon {
+    width: max-content;
+    height: $grid-unit-size * 4;
+    max-width: $grid-unit-size * 16;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        object-fit: contain;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.sprite-left-header {
+    flex: 1;
+    min-width: 0;
+
+    .sprite-logo-icon {
+        margin: 0;
+    }
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sprite-right-header {
+    flex-shrink: 0;
+    max-width: 45%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    > a.ant-btn {
+        span[role='img'] {
+            font-size: 24px;
+            line-height: 24px;
+        }
+    }
+}
+
+.sprite-header-menu-user-dropdown {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .anticon.sprite-header-dropdown-icon {
+        &.anticon-caret-down {
+            font-size: 12px;
+        }
+
+        font-size: 20px;
+        padding: $grid-unit-size;
+    }
+
+    .sprite-header-menu-user-dropdown-organization {
+        font-size: 10px;
+    }
+
+    > div:nth-child(2) {
+        max-width: $grid-unit-size * 15;
+        height: $grid-unit-size * 5;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        align-items: center;
+    }
+}
+
+.sprite-header-menu {
+    width: $grid-unit-size * 24;
+}
+
+.sprite-header-menu-active-organization-item {
+    ::after {
+        content: ' \2713';
+        float: right;
+        margin-left: $grid-unit-size;
+    }
+
+    font-weight: bold;
+}
+
+.sprite-shortcuts-modal-window-table {
+    .ant-table {
+        max-height: $grid-unit-size * 70;
+        overflow-y: auto;
+    }
+}

@@ -1,0 +1,76 @@
+// frontend/src/styles.scss
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  // Сбер цвета
+  --sber-green: #2E6B47;
+  --sber-green-dark: #1F4D33;
+  --sber-green-light: #4A9B6E;
+  --sber-orange: #FFB347;
+  --sber-gray-bg: #F8FAFE;
+  --sber-gray-card: #FFFFFF;
+  --sber-text-primary: #1F2937;
+  --sber-text-secondary: #6B7280;
+  --sber-border: #E5E7EB;
+  
+  // Градиенты
+  --gradient-green: linear-gradient(135deg, #2E6B47 0%, #1F4D33 100%);
+  --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #F9FAFE 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--sber-gray-bg);
+  color: var(--sber-text-primary);
+}
+
+// Glassmorphism эффект
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+// Анимации
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+// Кастомные скроллбары
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F1F1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C1C1C1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A1A1A1;
+}

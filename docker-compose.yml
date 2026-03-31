@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: ./backend
+    container_name: dataset-backend
+    ports:
+      - "8001:8000"  # меняем с 8000 на 8001
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build: ./frontend
+    container_name: dataset-frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"

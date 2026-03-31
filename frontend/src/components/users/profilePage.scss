@@ -1,0 +1,13 @@
+@import 'base';
+
+.profilePage {
+  padding: $grid-unit-size * 2;
+  min-height: calc(100vh - #{$header-height});
+  box-sizing: border-box;
+
+  &__card {
+    max-width: 640px;
+    box-shadow: $box-shadow-base;
+    border-radius: $border-radius-base;
+  }
+}

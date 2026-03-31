@@ -1,0 +1,322 @@
+// frontend/src/components/finance/walletPage.scss
+
+.wallet-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 0;
+
+  // Заголовок страницы
+  .page-header {
+    margin-bottom: 32px;
+    padding: 20px 0 16px 0;
+    border-bottom: 2px solid #e5e7eb;
+
+    .page-title {
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #2E6B47 0%, #1F4D33 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .page-description {
+      color: #6B7280;
+      font-size: 16px;
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+
+  // Карточка баланса
+  .balance-row {
+    margin-bottom: 24px;
+
+    .balance-card {
+      border-radius: 20px;
+      background: linear-gradient(135deg, #2E6B47 0%, #1F4D33 100%);
+      box-shadow: 0 8px 32px rgba(46, 107, 71, 0.2);
+      border: none;
+
+      .ant-card-body {
+        padding: 32px;
+      }
+
+      .balance-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .balance-icon {
+          width: 64px;
+          height: 64px;
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          .anticon {
+            font-size: 32px;
+            color: white;
+          }
+        }
+
+        .balance-info {
+          flex: 1;
+          min-width: 200px;
+
+          .balance-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            display: block;
+            margin-bottom: 8px;
+          }
+
+          .balance-amount {
+            color: white;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+          }
+        }
+
+        .balance-actions {
+          flex-shrink: 0;
+
+          .deposit-btn {
+            background: white;
+            color: #2E6B47;
+            border: none;
+            height: 44px;
+            padding: 0 32px;
+            border-radius: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.9);
+              transform: translateY(-2px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Статистика
+  .stats-row {
+    margin-bottom: 24px;
+
+    .ant-col {
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      height: 100%;
+
+      .ant-card-body {
+        padding: 20px;
+        text-align: center;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .ant-statistic {
+        .ant-statistic-title {
+          font-size: 14px;
+          color: #6B7280;
+          margin-bottom: 12px;
+          white-space: nowrap;
+        }
+
+        .ant-statistic-content {
+          font-size: 28px;
+          font-weight: 600;
+          
+          .ant-statistic-content-prefix {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  // Таблица транзакций
+  .transactions-card {
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-top: 8px;
+
+    .ant-card-head {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 16px 24px;
+
+      .ant-card-head-title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    .ant-card-body {
+      padding: 0;
+      overflow-x: auto;
+    }
+
+    .ant-table {
+      .ant-table-thead > tr > th {
+        background: #F9FAFB;
+        font-weight: 600;
+        white-space: nowrap;
+        padding: 16px;
+      }
+
+      .ant-table-tbody > tr > td {
+        padding: 16px;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  // Модальное окно
+  .deposit-modal {
+    .ant-modal-content {
+      border-radius: 20px;
+    }
+
+    .ant-modal-header {
+      border-radius: 20px 20px 0 0;
+      padding: 20px 24px;
+
+      .ant-modal-title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    .ant-modal-body {
+      padding: 24px;
+    }
+
+    .ant-input-number {
+      width: 100%;
+      border-radius: 12px;
+    }
+  }
+}
+
+// Адаптация для планшетов
+@media (max-width: 992px) {
+  .wallet-page {
+    .balance-card {
+      .balance-content {
+        flex-direction: column;
+        text-align: center;
+
+        .balance-info {
+          text-align: center;
+        }
+      }
+    }
+
+    .stats-row {
+      .stat-card {
+        .ant-statistic {
+          .ant-statistic-title {
+            white-space: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Адаптация для мобильных
+@media (max-width: 768px) {
+  .wallet-page {
+    padding: 16px;
+
+    .page-header {
+      margin-bottom: 24px;
+      padding: 16px 0 12px 0;
+
+      .page-title {
+        font-size: 24px;
+      }
+
+      .page-description {
+        font-size: 14px;
+      }
+    }
+
+    .balance-card {
+      .ant-card-body {
+        padding: 20px;
+      }
+
+      .balance-content {
+        .balance-icon {
+          width: 48px;
+          height: 48px;
+
+          .anticon {
+            font-size: 24px;
+          }
+        }
+
+        .balance-info {
+          .balance-amount {
+            font-size: 28px;
+          }
+        }
+
+        .balance-actions {
+          width: 100%;
+
+          .deposit-btn {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .stats-row {
+      .stat-card {
+        .ant-card-body {
+          padding: 16px;
+        }
+
+        .ant-statistic {
+          .ant-statistic-content {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+
+    .transactions-card {
+      .ant-table {
+        font-size: 12px;
+
+        .ant-table-thead > tr > th,
+        .ant-table-tbody > tr > td {
+          padding: 12px 8px;
+        }
+      }
+    }
+  }
+}
