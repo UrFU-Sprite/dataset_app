@@ -33,19 +33,22 @@ let mockProjects: Project[] = [
 
 let mockTaskSeq = 100
 
+// Добавляем задачу с ID=1, чтобы она существовала
 let mockTasks: Task[] = [
     {
         id: 1,
         projectId: 1,
-        status: 'open',
+        status: 'pending',
         images: [
             {
+                id: 1,
                 url: 'https://picsum.photos/seed/cat-1/512/512',
-                caption: '',
+                caption: 'Кот на фото',
             },
             {
+                id: 2,
                 url: 'https://picsum.photos/seed/dog-1/512/512',
-                caption: '',
+                caption: 'Собака на фото',
             },
         ],
     },
@@ -55,6 +58,7 @@ let mockTasks: Task[] = [
         status: 'in_progress',
         images: [
             {
+                id: 3,
                 url: 'https://picsum.photos/seed/vehicle-1/512/512',
                 caption: 'A vehicle on the road',
             },
@@ -71,8 +75,9 @@ function getTaskImages(task: Task): TaskImage[] {
 function getTasksStats() {
     const total = mockTasks.length
     const completed = mockTasks.filter((t) => t.status === 'completed' || t.status === 'done').length
-    const open = total - completed
-    return {total, completed, open}
+    const pending = mockTasks.filter((t) => t.status === 'pending' || t.status === 'open').length
+    const inProgress = mockTasks.filter((t) => t.status === 'in_progress').length
+    return {total, completed, pending, inProgress}
 }
 
 // -----------------------
@@ -82,7 +87,6 @@ function getTasksStats() {
 const TOKEN_PREFIX = 'mock-token:'
 
 export async function mockLoginUser(payload: {email: string; password: string}): Promise<string> {
-    // Password is ignored for the mock.
     await delay(250)
     const token = `${TOKEN_PREFIX}${payload.email}`
     try {
@@ -135,7 +139,6 @@ export async function mockCreateProject(payload: {name: string; description?: st
 
 export async function mockListTasks(): Promise<Task[]> {
     await delay(250)
-    // Return shallow copy to avoid accidental external mutation.
     return mockTasks.map((t) => ({...t, images: getTaskImages(t).map((img) => ({...img}))}))
 }
 
@@ -145,22 +148,84 @@ export async function mockCreateTask(payload: CreateTaskPayload): Promise<Task> 
     mockTaskSeq += 1
     const id = mockTaskSeq
 
-    const imagesInput = payload.images ?? []
-    const urls = payload.imageUrls ?? imagesInput.map((img) => img.url)
-    const images: TaskImage[] = urls.map((url) => ({
-        url,
-        caption: undefined,
-    }))
+    let images: TaskImage[] = []
+    
+    // Поддерживаем оба формата: images (массив объектов) и imageUrls (массив строк)
+    if (payload.imageUrls && payload.imageUrls.length > 0) {
+        images = payload.imageUrls.map((url, index) => ({
+            id: index + 1,
+            url: url,
+            caption: '',
+        }))
+    } else if (payload.images && payload.images.length > 0) {
+        images = payload.images.map((img, index) => ({
+            id: index + 1,
+            url: img.url,
+            caption: img.caption || '',
+        }))
+    }
 
     const next: Task = {
         id,
         projectId: payload.projectId,
-        status: 'open',
-        images,
+        status: 'pending',
+        images: images,
     }
 
     mockTasks = [next, ...mockTasks]
+    console.log('[Mock] Task created:', next)
     return next
+}
+
+export async function mockGetTaskById(taskId: number | string): Promise<Task> {
+    await delay(200)
+    const id = Number(taskId)
+    const task = mockTasks.find(t => Number(t.id) === id)
+    
+    if (!task) {
+        throw new Error(`Task with id ${id} not found`)
+    }
+    
+    return {
+        ...task,
+        images: getTaskImages(task).map((img) => ({...img}))
+    }
+}
+
+export async function mockGetTaskAnnotations(taskId: number | string): Promise<any[]> {
+    await delay(150)
+    const id = Number(taskId)
+    return [
+        {
+            id: 1,
+            task_id: id,
+            worker_id: 1,
+            label: 'image_classification',
+            comment: 'Это изображение содержит объект для классификации',
+            created_at: new Date().toISOString()
+        },
+        {
+            id: 2,
+            task_id: id,
+            worker_id: 2,
+            label: 'image_classification',
+            comment: 'Подтверждаю классификацию',
+            created_at: new Date(Date.now() - 3600000).toISOString()
+        }
+    ]
+}
+
+export async function mockGetTaskConsensus(taskId: number | string): Promise<any> {
+    await delay(150)
+    const id = Number(taskId)
+    return {
+        task_id: id,
+        total_annotations: 2,
+        label_counts: { image_classification: 2 },
+        consensus_label: 'image_classification',
+        agreement_score: 1.0,
+        needs_review: false
+    }
 }
 
 export async function mockSubmitTask(payload: SubmitTaskPayload): Promise<Task> {
@@ -206,8 +271,9 @@ export async function mockGetDashboard(): Promise<DashboardResponse> {
     await delay(200)
     const stats = getTasksStats()
     return {
-        ...stats,
-        label: 'Mock analytics dashboard',
-    } satisfies DashboardResponse
+        total_tasks: stats.total,
+        completed: stats.completed,
+        open: stats.pending + stats.inProgress,
+        label: 'Mock analytics dashboard'
+    }
 }
-

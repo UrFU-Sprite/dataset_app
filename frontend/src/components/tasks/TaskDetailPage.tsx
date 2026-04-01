@@ -59,6 +59,10 @@ interface ConsensusData {
 export const TaskDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  
+  // Преобразуем id в число
+  const taskId = Number(id);
+  
   const [task, setTask] = useState<Task | null>(null);
   const [annotations, setAnnotations] = useState<Annotation[]>([]);
   const [consensus, setConsensus] = useState<ConsensusData | null>(null);
@@ -69,18 +73,18 @@ export const TaskDetailPage: React.FC = () => {
   const [previewVisible, setPreviewVisible] = useState(false);
 
   useEffect(() => {
-    if (id) {
+    if (taskId && !isNaN(taskId)) {
       loadTaskData();
     }
-  }, [id]);
+  }, [taskId]);
 
   const loadTaskData = async () => {
     setLoading(true);
     try {
       const [taskData, annotationsData, consensusData] = await Promise.all([
-        getTaskById(id!),
-        getTaskAnnotations(id!).catch(() => []),
-        getTaskConsensus(id!).catch(() => null)
+        getTaskById(taskId),
+        getTaskAnnotations(taskId).catch(() => []),
+        getTaskConsensus(taskId).catch(() => null)
       ]);
       setTask(taskData);
       setAnnotations(annotationsData);
@@ -90,7 +94,7 @@ export const TaskDetailPage: React.FC = () => {
       if (taskData?.images) {
         const initialCaptions = new Map();
         taskData.images.forEach(img => {
-          if (img.caption) {
+          if (img.caption && img.id) {
             initialCaptions.set(img.id, img.caption);
           }
         });
@@ -116,7 +120,7 @@ export const TaskDetailPage: React.FC = () => {
       const imagesPayload = task.images?.map(img => ({
         id: img.id,
         url: img.url,
-        caption: captions.get(img.id) || img.caption || ''
+        caption: captions.get(Number(img.id)) || img.caption || ''
       })) || [];
       
       await submitTask({
@@ -247,13 +251,13 @@ export const TaskDetailPage: React.FC = () => {
                       <Text strong>Подпись к изображению:</Text>
                       <TextArea
                         rows={3}
-                        value={captions.get(image.id) || image.caption || ''}
-                        onChange={(e) => handleCaptionChange(image.id, e.target.value)}
+                        value={captions.get(Number(image.id)) || image.caption || ''}
+                        onChange={(e) => handleCaptionChange(Number(image.id), e.target.value)}
                         placeholder="Введите описание изображения..."
                         disabled={isCompleted}
                         className="caption-input"
                       />
-                      {image.caption && !captions.get(image.id) && (
+                      {image.caption && !captions.get(Number(image.id)) && (
                         <div className="existing-caption">
                           <Text type="secondary">Предыдущая подпись: </Text>
                           <Text italic>{image.caption}</Text>
@@ -416,7 +420,7 @@ export const TaskDetailPage: React.FC = () => {
             />
             <div className="preview-caption">
               <Text strong>Текущая подпись:</Text>
-              <Text>{captions.get(selectedImage.id) || selectedImage.caption || 'Нет подписи'}</Text>
+              <Text>{captions.get(Number(selectedImage.id)) || selectedImage.caption || 'Нет подписи'}</Text>
             </div>
           </div>
         )}

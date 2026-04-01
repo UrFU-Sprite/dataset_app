@@ -1,4 +1,3 @@
-// frontend/src/components/tasks/TasksPage.tsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -28,6 +27,7 @@ import {
   EyeOutlined,
   CheckCircleOutlined,
   ClockCircleOutlined,
+  SyncOutlined,
   LoadingOutlined,
   ExclamationCircleOutlined,
   UserOutlined,
@@ -69,9 +69,12 @@ export const TasksPage: React.FC = () => {
     setLoading(true);
     try {
       const data = await listTasks();
+      console.log('Loaded tasks:', data); // Для отладки
+      
       const tasksWithStats = data.map(task => ({
         ...task,
-        completionRate: Math.floor(Math.random() * 100),
+        completionRate: task.status === 'completed' || task.status === 'done' ? 100 : 
+                        task.status === 'in_progress' ? 50 : 0,
         assigneeName: ['Анна С.', 'Дмитрий К.', 'Елена М.', 'Игорь В.'][Math.floor(Math.random() * 4)]
       }));
       setTasks(tasksWithStats);
@@ -86,18 +89,34 @@ export const TasksPage: React.FC = () => {
 
   const filterTasks = () => {
     let filtered = [...tasks];
+    
+    // Фильтр по активной вкладке (ВАЖНО: правильные статусы)
     if (activeTab !== 'all') {
-      filtered = filtered.filter(task => task.status === activeTab);
+      if (activeTab === 'pending') {
+        // Статусы, которые считаются "Ожидают": pending, open
+        filtered = filtered.filter(task => task.status === 'pending' || task.status === 'open');
+      } else if (activeTab === 'in_progress') {
+        filtered = filtered.filter(task => task.status === 'in_progress');
+      } else if (activeTab === 'completed') {
+        filtered = filtered.filter(task => task.status === 'completed' || task.status === 'done');
+      } else {
+        filtered = filtered.filter(task => task.status === activeTab);
+      }
     }
+    
+    // Фильтр по статусу в селекте
     if (statusFilter !== 'all') {
       filtered = filtered.filter(task => task.status === statusFilter);
     }
+    
+    // Поиск
     if (searchText) {
       filtered = filtered.filter(task =>
         task.id.toString().includes(searchText) ||
         task.projectId?.toString().includes(searchText)
       );
     }
+    
     setFilteredTasks(filtered);
   };
 
@@ -124,14 +143,16 @@ export const TasksPage: React.FC = () => {
     });
   };
 
-  const getStatusTag = (status?: string) => {
-    const statusMap = {
-      pending: { color: 'default', icon: <ClockCircleOutlined />, text: 'Ожидает' },
-      in_progress: { color: 'processing', icon: <LoadingOutlined />, text: 'В работе' },
-      completed: { color: 'success', icon: <CheckCircleOutlined />, text: 'Завершена' },
-      done: { color: 'success', icon: <CheckCircleOutlined />, text: 'Готово' }
+const getStatusTag = (status?: string) => {
+    const statusMap: Record<string, { color: string; icon: React.ReactNode; text: string }> = {
+        pending: { color: 'default', icon: <ClockCircleOutlined />, text: 'Ожидает' },
+        open: { color: 'default', icon: <ClockCircleOutlined />, text: 'Ожидает' },
+        in_progress: { color: 'processing', icon: <SyncOutlined spin />, text: 'В работе' },  // ← используем SyncOutlined с spin
+        completed: { color: 'success', icon: <CheckCircleOutlined />, text: 'Завершена' },
+        done: { color: 'success', icon: <CheckCircleOutlined />, text: 'Готово' }
     };
-    const config = statusMap[status as keyof typeof statusMap] || statusMap.pending;
+    
+    const config = statusMap[status || 'pending'] || statusMap.pending;
     return <Tag color={config.color} icon={config.icon}>{config.text}</Tag>;
   };
 
@@ -238,7 +259,8 @@ export const TasksPage: React.FC = () => {
 
   const getStatistics = () => {
     const total = tasks.length;
-    const pending = tasks.filter(t => t.status === 'pending').length;
+    // Важно: подсчитываем все статусы, которые считаются "Ожидают"
+    const pending = tasks.filter(t => t.status === 'pending' || t.status === 'open').length;
     const inProgress = tasks.filter(t => t.status === 'in_progress').length;
     const completed = tasks.filter(t => t.status === 'completed' || t.status === 'done').length;
     const completionRate = total > 0 ? Math.round((completed / total) * 100) : 0;
@@ -247,9 +269,12 @@ export const TasksPage: React.FC = () => {
 
   const stats = getStatistics();
 
+  // Для отладки - выводим список задач
+  console.log('Tasks with statuses:', tasks.map(t => ({ id: t.id, status: t.status })));
+  console.log('Pending tasks count:', stats.pending);
+
   return (
     <div className="tasks-page">
-      {/* Статистика */}
       <Row gutter={[16, 16]} className="stats-row">
         <Col xs={24} sm={12} md={6}>
           <Card className="stat-card">
@@ -300,7 +325,6 @@ export const TasksPage: React.FC = () => {
         </Col>
       </Row>
 
-      {/* Таблица задач */}
       <Card className="tasks-card">
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16 }}>
           <Button
@@ -373,10 +397,11 @@ export const TasksPage: React.FC = () => {
           >
             <Table
               columns={columns}
-              dataSource={filteredTasks.filter(t => t.status === 'pending')}
+              dataSource={filteredTasks.filter(t => t.status === 'pending' || t.status === 'open')}
               rowKey="id"
               loading={loading}
               pagination={{ pageSize: 10 }}
+              locale={{ emptyText: 'Нет задач в статусе "Ожидают"' }}
             />
           </TabPane>
           <TabPane
@@ -393,6 +418,7 @@ export const TasksPage: React.FC = () => {
               rowKey="id"
               loading={loading}
               pagination={{ pageSize: 10 }}
+              locale={{ emptyText: 'Нет задач в статусе "В работе"' }}
             />
           </TabPane>
           <TabPane
@@ -409,6 +435,7 @@ export const TasksPage: React.FC = () => {
               rowKey="id"
               loading={loading}
               pagination={{ pageSize: 10 }}
+              locale={{ emptyText: 'Нет завершенных задач' }}
             />
           </TabPane>
         </Tabs>

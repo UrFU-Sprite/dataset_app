@@ -31,3 +31,11 @@ export async function getQualityMetrics(projectId?: number): Promise<any> {
     : '/api/v1/analytics/quality';
   return apiRequest<any>(url, { method: 'GET' });
 }
+
+// Добавьте это в конец файла для совместимости с mock.ts
+export interface DashboardResponse {
+  total_tasks: number;
+  completed: number;
+  open: number;
+  label: string;
+}
