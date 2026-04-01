@@ -44,7 +44,6 @@ MANIFEST
 *.db-journal
 instance/
 *.csv
-*.json
 data/
 datasets/
 uploads/
